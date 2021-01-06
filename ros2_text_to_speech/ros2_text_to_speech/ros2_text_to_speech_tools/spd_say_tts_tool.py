@@ -13,6 +13,8 @@ class SpdSayTtsTool(TtsTool):
                   "-t", gender_dict[request.config.gender] + "1",
                   "-r", str(request.config.rate - 100),
                   "-i", str(request.config.volume * 200 - 100),
-                  request.text
+                  request.text,
+                  "--wait"
                   ],
-            stdout=subprocess.PIPE)
+            stdout=subprocess.PIPE,
+            start_new_session=True)

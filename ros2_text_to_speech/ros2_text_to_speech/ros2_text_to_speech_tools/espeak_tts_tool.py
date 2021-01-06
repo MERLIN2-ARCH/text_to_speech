@@ -13,4 +13,5 @@ class EspeakTtsTool(TtsTool):
                   "-a", str(request.config.volume * 200),
                   request.text
                   ],
-            stdout=subprocess.PIPE)
+            stdout=subprocess.PIPE,
+            start_new_session=True)

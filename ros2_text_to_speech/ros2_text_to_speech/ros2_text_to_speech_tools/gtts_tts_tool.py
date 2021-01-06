@@ -23,4 +23,5 @@ class GTtsTtsTool(TtsTool):
             args=["mpg321",
                   gtts_file
                   ],
-            stdout=subprocess.PIPE)
+            stdout=subprocess.PIPE,
+            start_new_session=True)

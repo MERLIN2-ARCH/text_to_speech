@@ -10,4 +10,5 @@ class SayTtsTool(TtsTool):
             args=["say",
                   request.text
                   ],
-            stdout=subprocess.PIPE)
+            stdout=subprocess.PIPE,
+            start_new_session=True)

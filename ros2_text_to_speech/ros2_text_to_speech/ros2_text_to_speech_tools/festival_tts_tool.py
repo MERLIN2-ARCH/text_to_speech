@@ -16,4 +16,5 @@ class FestivalTtsTool(TtsTool):
         return subprocess.Popen(
             "echo " + request.text + " | festival --tts --language " + language,
             shell=True,
-            stdout=subprocess.PIPE)
+            stdout=subprocess.PIPE,
+            start_new_session=True)
