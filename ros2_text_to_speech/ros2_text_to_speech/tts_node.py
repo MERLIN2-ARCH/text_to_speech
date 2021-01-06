@@ -9,7 +9,6 @@ from ros2_text_to_speech_interfaces.action import TTS
 from ros2_text_to_speech_interfaces.msg import Config
 from .ros2_text_to_speech_tools import (
     EspeakTtsTool,
-    SayTtsTool,
     SpdSayTtsTool,
     FestivalTtsTool,
     GTtsTtsTool
@@ -31,7 +30,6 @@ class TtsNode(Node):
 
         self.__tools_dict = {
             Config.ESPEAK: EspeakTtsTool(),
-            Config.SAY: SayTtsTool(),
             Config.SPD_SAY: SpdSayTtsTool(),
             Config.FESTIVAL: FestivalTtsTool(),
             Config.GTTS: GTtsTtsTool()
