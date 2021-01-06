@@ -2,7 +2,7 @@
 
 ## Installation
 ```shell
-sudo apt install libespeak.so.1 -y
+sudo apt update && sudo apt install espeak ffmpeg libespeak1 -y
 sudo pip3 install pyttsx3
 ```
 
