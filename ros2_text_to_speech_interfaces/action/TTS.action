@@ -1,7 +1,7 @@
 # Define the goal
 string text
 float32 volume 1.0
-int32 rate 100
+int32 rate 125
 string language "english"
 ---
 # Define the result
