@@ -1,6 +1,7 @@
 
 """ Text to Speech for ROS2 """
 
+import os
 import pyttsx3
 import rclpy
 from ros2_text_to_speech_interfaces.action import TTS
@@ -17,7 +18,7 @@ class TtsNode(Node):
 
         super().__init__('tts_node')
 
-        self.__engine = pyttsx3.init()
+        self.__engine = pyttsx3.init(driverName="espeak")
 
         # action server
         self.__action_server = ActionSingleServer(self,
@@ -34,6 +35,7 @@ class TtsNode(Node):
         super().destroy_node()
 
     def __cancel_callback(self):
+        os.system("pkill aplay")
         self.__engine.stop()
 
     def __execute_server(self, goal_handle):
