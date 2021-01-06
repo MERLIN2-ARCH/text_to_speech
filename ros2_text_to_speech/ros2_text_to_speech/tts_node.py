@@ -9,7 +9,8 @@ from .ros2_text_to_speech_tools import (
     EspeakTtsTool,
     SayTtsTool,
     SpdSayTtsTool,
-    FestivalTtsTool
+    FestivalTtsTool,
+    GTtsTtsTool
 )
 from custom_ros2 import (
     Node,
@@ -30,7 +31,8 @@ class TtsNode(Node):
             Config.ESPEAK: EspeakTtsTool(),
             Config.SAY: SayTtsTool(),
             Config.SPD_SAY: SpdSayTtsTool(),
-            Config.FESTIVAL: FestivalTtsTool()
+            Config.FESTIVAL: FestivalTtsTool(),
+            Config.GTTS: GTtsTtsTool()
         }
 
         # action server

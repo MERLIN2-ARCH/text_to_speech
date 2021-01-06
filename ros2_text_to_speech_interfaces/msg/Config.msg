@@ -13,6 +13,7 @@ int32 ESPEAK=1
 int32 SAY=2
 int32 SPD_SAY=3
 int32 FESTIVAL=4
+int32 GTTS=5
 
 int32 tool 1
 float32 volume 0.5
