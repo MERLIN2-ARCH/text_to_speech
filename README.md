@@ -2,8 +2,10 @@
 
 ## Installation
 ```shell
-sudo apt update && sudo apt install espeak ffmpeg libespeak1 -y
-sudo pip3 install pyttsx3
+sudo apt install espeak -y
+sudo apt install gnustep-gui-runtime
+sudo apt install speech-dispatcher
+sudo apt install festival festival-doc festvox-kdlpc16k festvox-ellpc11k festvox-italp16k festvox-itapc16k -y
 ```
 
 ## Launch
