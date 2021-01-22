@@ -17,6 +17,6 @@ int32 GTTS=4
 int32 tool 1
 float32 volume 0.5
 int32 rate 100
-string language ENGLISH
-string gender MALE
+string language "en"
+string gender "m"
 
