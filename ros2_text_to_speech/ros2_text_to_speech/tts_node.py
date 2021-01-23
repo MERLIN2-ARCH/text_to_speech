@@ -2,6 +2,7 @@
 """ Text to Speech for ROS2 """
 
 import os
+import time
 import signal
 import rclpy
 from ros2_text_to_speech_interfaces.action import TTS
@@ -52,6 +53,9 @@ class TtsNode(Node):
 
     def __cancel_callback(self):
         if self.__process:
+            while self.__process == "started":
+                time.sleep(0.05)
+
             os.killpg(os.getpgid(self.__process.pid), signal.SIGTERM)
 
     def __execute_server(self, goal_handle):
@@ -60,6 +64,8 @@ class TtsNode(Node):
         Args:
             goal_handle: goal_handle
         """
+
+        self.__process = "started"
 
         request = goal_handle.request
         result = TTS.Result()
