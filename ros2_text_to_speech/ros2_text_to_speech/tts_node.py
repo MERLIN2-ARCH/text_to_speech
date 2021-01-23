@@ -3,7 +3,6 @@
 
 import os
 import signal
-import time
 import rclpy
 from ros2_text_to_speech_interfaces.action import TTS
 from ros2_text_to_speech_interfaces.msg import Config
@@ -29,7 +28,6 @@ class TtsNode(Node):
         super().__init__('tts_node')
 
         self.__process = None
-        self.__server_cancelled = False
 
         self.__tools_dict = {
             Config.ESPEAK: EspeakTtsTool(),
@@ -53,7 +51,6 @@ class TtsNode(Node):
         super().destroy_node()
 
     def __cancel_callback(self):
-        self.__server_cancelled = True
         if self.__process:
             os.killpg(os.getpgid(self.__process.pid), signal.SIGTERM)
 
@@ -64,7 +61,6 @@ class TtsNode(Node):
             goal_handle: goal_handle
         """
 
-        self.__server_cancelled = False
         request = goal_handle.request
         result = TTS.Result()
 
@@ -75,12 +71,12 @@ class TtsNode(Node):
         self.__process = self.__tools_dict[request.config.tool].say(request)
         self.__process.wait()
 
-        if(not self.__server_cancelled):
-            goal_handle.succeed()
-        else:
-            while not goal_handle.is_cancel_requested:
-                time.sleep(1)
+        if self.__action_server.is_canceled():
+            self.__action_server.wait_for_canceling()
             goal_handle.canceled()
+
+        else:
+            goal_handle.succeed()
 
         return result
 
