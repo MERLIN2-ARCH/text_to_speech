@@ -45,12 +45,6 @@ class TtsNode(Node):
                                                   cancel_callback=self.__cancel_callback
                                                   )
 
-    def destroy_node(self):
-        """ destroy node method """
-
-        self.__action_server.destroy()
-        super().destroy_node()
-
     def __cancel_callback(self):
         if self.__process:
             while self.__process == "started":
