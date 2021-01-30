@@ -45,7 +45,7 @@ class TtsNode(Node):
                                                   cancel_callback=self.__cancel_callback
                                                   )
 
-    def destroy(self):
+    def destroy_node(self):
         """ destroy node method """
 
         self.__action_server.destroy()
@@ -93,8 +93,6 @@ def main(args=None):
     node = TtsNode()
 
     node.join_spin()
-
-    node.destroy()
 
     rclpy.shutdown()
 
