@@ -8,10 +8,7 @@ import rclpy
 from ros2_text_to_speech_interfaces.action import TTS
 from ros2_text_to_speech_interfaces.msg import Config
 
-from custom_ros2 import (
-    Node,
-    ActionSingleServer
-)
+from custom_ros2 import Node
 
 from .ros2_text_to_speech_tools import (
     EspeakTtsTool,
@@ -38,12 +35,11 @@ class TtsNode(Node):
         }
 
         # action server
-        self.__action_server = ActionSingleServer(self,
-                                                  TTS,
-                                                  "tts",
-                                                  execute_callback=self.__execute_server,
-                                                  cancel_callback=self.__cancel_callback
-                                                  )
+        self.__action_server = self.create_action_server(TTS,
+                                                         "tts",
+                                                         execute_callback=self.__execute_server,
+                                                         cancel_callback=self.__cancel_callback
+                                                         )
 
     def __cancel_callback(self):
         if self.__process:
