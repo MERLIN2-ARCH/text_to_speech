@@ -5,11 +5,11 @@ from launch.actions import SetEnvironmentVariable
 
 
 def generate_launch_description():
-    pkg_name = 'text_to_speech'
-    namespace = 'text_to_speech'
+    pkg_name = "text_to_speech"
+    namespace = "text_to_speech"
 
     stdout_linebuf_envvar = SetEnvironmentVariable(
-        'RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED', '1')
+        "RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED", "1")
 
     #
     # NODES
@@ -17,8 +17,8 @@ def generate_launch_description():
 
     tts_node_cmd = Node(
         package=pkg_name,
-        executable='tts_node',
-        name='tts_node',
+        executable="tts_node",
+        name="tts_node",
         namespace=namespace
     )
 

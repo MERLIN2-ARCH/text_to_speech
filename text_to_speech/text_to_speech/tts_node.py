@@ -23,7 +23,7 @@ class TtsNode(Node):
 
     def __init__(self):
 
-        super().__init__('tts_node')
+        super().__init__("tts_node")
 
         self.__process = None
 
@@ -87,5 +87,5 @@ def main(args=None):
     rclpy.shutdown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
