@@ -5,7 +5,7 @@ from launch.actions import SetEnvironmentVariable
 
 
 def generate_launch_description():
-    pkg_name = 'ros2_text_to_speech'
+    pkg_name = 'text_to_speech'
     namespace = 'text_to_speech'
 
     stdout_linebuf_envvar = SetEnvironmentVariable(

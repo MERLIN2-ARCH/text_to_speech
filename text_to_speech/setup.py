@@ -2,7 +2,7 @@ from glob import glob
 import os
 from setuptools import setup, find_packages
 
-package_name = 'ros2_text_to_speech'
+package_name = 'text_to_speech'
 
 setup(
     name=package_name,
@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'tts_node = ros2_text_to_speech.tts_node:main',
+            'tts_node = text_to_speech.tts_node:main',
         ],
     },
 )

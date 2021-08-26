@@ -1,6 +1,6 @@
 # Define the goal
 string text
-ros2_text_to_speech_interfaces/Config config
+text_to_speech_interfaces/Config config
 ---
 # Define the result
 ---

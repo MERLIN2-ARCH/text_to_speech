@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(ros2_text_to_speech_interfaces)
+project(text_to_speech_interfaces)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)

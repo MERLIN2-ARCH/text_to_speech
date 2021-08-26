@@ -5,12 +5,12 @@ import os
 import time
 import signal
 import rclpy
-from ros2_text_to_speech_interfaces.action import TTS
-from ros2_text_to_speech_interfaces.msg import Config
+from text_to_speech_interfaces.action import TTS
+from text_to_speech_interfaces.msg import Config
 
 from simple_node import Node
 
-from .ros2_text_to_speech_tools import (
+from .text_to_speech_tools import (
     EspeakTtsTool,
     SpdSayTtsTool,
     FestivalTtsTool,
