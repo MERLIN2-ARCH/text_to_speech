@@ -13,7 +13,7 @@
 
 ## Installation
 ```shell
-cd ~/ros2_foxy/src
+cd ~/ros2_ws/src
 git clone text_to_speech
 cd text_to_speech
 ./install_dependencies.sh
