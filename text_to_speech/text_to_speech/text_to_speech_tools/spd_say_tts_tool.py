@@ -1,13 +1,14 @@
 
-import subprocess
+from text_to_speech_interfaces.action import TTS
+from subprocess import Popen, PIPE
 from .tts_tool import TtsTool
 
 
 class SpdSayTtsTool(TtsTool):
 
-    def say(self, request):
+    def say(self, request: TTS.Goal) -> Popen:
         gender_dict = {"m": "male", "f": "female"}
-        return subprocess.Popen(
+        return Popen(
             args=["spd-say",
                   "-l" + request.config.language,
                   "-t", gender_dict[request.config.gender] + "1",
@@ -16,5 +17,5 @@ class SpdSayTtsTool(TtsTool):
                   request.text,
                   "--wait"
                   ],
-            stdout=subprocess.PIPE,
+            stdout=PIPE,
             start_new_session=True)

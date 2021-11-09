@@ -11,7 +11,7 @@ from text_to_speech_interfaces.msg import Config
 from simple_node import Node
 
 from .text_to_speech_tools import (
-    EspeakTtsTool,
+    ESpeakTtsTool,
     SpdSayTtsTool,
     FestivalTtsTool,
     GTtsTtsTool
@@ -28,7 +28,7 @@ class TtsNode(Node):
         self.__process = None
 
         self.__tools_dict = {
-            Config.ESPEAK: EspeakTtsTool(),
+            Config.ESPEAK: ESpeakTtsTool(),
             Config.SPD_SAY: SpdSayTtsTool(),
             Config.FESTIVAL: FestivalTtsTool(),
             Config.GTTS: GTtsTtsTool()
@@ -48,11 +48,14 @@ class TtsNode(Node):
 
             os.killpg(os.getpgid(self.__process.pid), signal.SIGTERM)
 
-    def __execute_server(self, goal_handle):
+    def __execute_server(self, goal_handle) -> TTS.Result:
         """ execute action server
 
         Args:
             goal_handle: goal_handle
+
+        Returns:
+            TTS.Result: tts result
         """
 
         self.__process = "started"

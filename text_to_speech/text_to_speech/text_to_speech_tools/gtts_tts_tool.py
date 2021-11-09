@@ -1,12 +1,13 @@
 
-import subprocess
+from text_to_speech_interfaces.action import TTS
+from subprocess import Popen, PIPE
 from .tts_tool import TtsTool
 from gtts import gTTS
 
 
 class GTtsTtsTool(TtsTool):
 
-    def say(self, request):
+    def say(self, request: TTS.Goal) -> Popen:
 
         slow = False
         gtts_file = "/tmp/gtts_tmp_file.mp3"
@@ -19,9 +20,9 @@ class GTtsTtsTool(TtsTool):
 
         gtts_obj.save(gtts_file)
 
-        return subprocess.Popen(
+        return Popen(
             args=["mpg321",
                   gtts_file
                   ],
-            stdout=subprocess.PIPE,
+            stdout=PIPE,
             start_new_session=True)

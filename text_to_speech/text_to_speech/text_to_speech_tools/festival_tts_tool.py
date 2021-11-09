@@ -1,11 +1,12 @@
 
-import subprocess
+from text_to_speech_interfaces.action import TTS
+from subprocess import Popen, PIPE
 from .tts_tool import TtsTool
 
 
 class FestivalTtsTool(TtsTool):
 
-    def say(self, request):
+    def say(self, request: TTS.Goal) -> Popen:
         language_dict = {"es": "spanish", "en": "english"}
 
         language = "english"
@@ -13,8 +14,8 @@ class FestivalTtsTool(TtsTool):
         if request.config.language in language_dict:
             language = language_dict[request.config.language]
 
-        return subprocess.Popen(
+        return Popen(
             "echo " + request.text + " | festival --tts --language " + language,
             shell=True,
-            stdout=subprocess.PIPE,
+            stdout=PIPE,
             start_new_session=True)

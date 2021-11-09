@@ -1,5 +1,6 @@
 
-
+from text_to_speech_interfaces.action import TTS
+from subprocess import Popen
 from abc import ABC, abstractmethod
 
 
@@ -10,5 +11,5 @@ class TtsTool(ABC):
     """
 
     @abstractmethod
-    def say(self, request):
+    def say(self, request: TTS.Goal) -> Popen:
         pass
