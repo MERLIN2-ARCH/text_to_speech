@@ -10,7 +10,7 @@ class ESpeakTtsTool(TtsTool):
         return Popen(
             args=["espeak",
                   "-v" + request.config.language + "+" + request.config.gender + "1",
-                  "-s", str(request.config.rate + 75),
+                  "-s", str(request.config.rate + 50),
                   "-a", str(request.config.volume * 200),
                   request.text
                   ],
