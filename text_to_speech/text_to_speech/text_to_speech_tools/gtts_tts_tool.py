@@ -23,6 +23,7 @@ class GTtsTtsTool(TtsTool):
         return Popen(
             args=["mpg321",
                   "--stereo",
+                  "-g", str(request.config.volume * 100),
                   gtts_file
                   ],
             stdout=PIPE,
