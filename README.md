@@ -1,30 +1,44 @@
 # TTS (Text To Speech)
 
-## Description
+TTS for ROS 2 with several tools:
 
-- ROS2 Foxy Fitzroy
-- ROS2 text to speech system
-- Libs:
-  - espeak
-  - speech-dispatcher
-  - festival
-  - gTTS
-  - mpg321
+- espeak
+- speech-dispatcher
+- festival
+- gTTS
+- mpg321
 
 ## Installation
+
+### Tools dependencies
+
 ```shell
-cd ~/ros2_ws/src
-git clone text_to_speech
-cd text_to_speech
-./install_dependencies.sh
+$ sudo apt install espeak -y
+$ sudo apt install speech-dispatcher -y
+$ sudo apt install festival festival-doc festvox-kdlpc16k festvox-ellpc11k festvox-italp16k festvox-itapc16k -y
+$ sudo pip3 install gTTS
+$ sudo apt install mpg321 -y
 ```
 
-## Launch
+### TTS
+
 ```shell
-ros2 launch text_to_speech text_to_speech_launch.py
+$ cd ~/ros2_ws/src
+$ git clone ssh://git@niebla.unileon.es:5022/mgonzs/text_to_speech.git
+$ cd ~/ros2_ws
+$ colcon build
 ```
 
-## Shell Example
+## Usage
+
+### Launch
+
 ```shell
-ros2 action send_goal /text_to_speech/tts text_to_speech_interfaces/action/TTS "{'text': 'Hello world', 'config': {'volume': '0.5', 'rate': '100', 'language': 'en', 'gender': 'm', 'tool': '1'}}"
+$ ros2 launch text_to_speech text_to_speech.launch.py
+```
+
+### Shell Example
+
+```shell
+$ ros2 action send_goal /text_to_speech/tts text_to_speech_interfaces/action/TTS "{'text': 'Hello world', 'config': {'volume': '0.5', 'rate': '100', 'language': 'en', 'gender': 'm', 'tool': '1'}}"
 ```
