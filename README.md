@@ -10,21 +10,19 @@ TTS for ROS 2 with several tools:
 
 ## Installation
 
-### Tools dependencies
-
 ```shell
+# dependencies
 $ sudo apt install espeak -y
 $ sudo apt install speech-dispatcher -y
 $ sudo apt install festival festival-doc festvox-kdlpc16k festvox-ellpc11k festvox-italp16k festvox-itapc16k -y
 $ sudo pip3 install gTTS
 $ sudo apt install mpg321 -y
-```
 
-### TTS
-
-```shell
+# clone
 $ cd ~/ros2_ws/src
-$ git clone ssh://git@niebla.unileon.es:5022/mgonzs/text_to_speech.git
+$ git clone https://github.com/MERLIN2-ARCH/text_to_speech.git
+
+# colcon
 $ cd ~/ros2_ws
 $ colcon build
 ```
