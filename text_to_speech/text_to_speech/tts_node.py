@@ -70,8 +70,7 @@ class TtsNode(Node):
         self.__process = self.__tools_dict[request.config.tool].say(request)
         self.__process.wait()
 
-        if self.__action_server.is_canceled():
-            self.__action_server.wait_for_canceling()
+        if goal_handle.is_cancel_requested:
             goal_handle.canceled()
 
         else:
