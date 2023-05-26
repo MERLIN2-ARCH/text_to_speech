@@ -38,5 +38,5 @@ $ ros2 launch text_to_speech text_to_speech.launch.py
 ### Shell Example
 
 ```shell
-$ ros2 action send_goal /text_to_speech/tts text_to_speech_interfaces/action/TTS "{'text': 'Hello world', 'config': {'volume': '0.5', 'rate': '100', 'language': 'en', 'gender': 'm', 'tool': '1'}}"
+$ ros2 action send_goal /text_to_speech/tts text_to_speech_msgs/action/TTS "{'text': 'Hello world', 'config': {'volume': '0.5', 'rate': '100', 'language': 'en', 'gender': 'm', 'tool': '1'}}"
 ```

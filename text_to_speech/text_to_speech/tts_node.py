@@ -5,8 +5,8 @@ import os
 import time
 import signal
 import rclpy
-from text_to_speech_interfaces.action import TTS
-from text_to_speech_interfaces.msg import Config
+from text_to_speech_msgs.action import TTS
+from text_to_speech_msgs.msg import Config
 
 from simple_node import Node
 

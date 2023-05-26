@@ -1,5 +1,5 @@
 
-from text_to_speech_interfaces.action import TTS
+from text_to_speech_msgs.action import TTS
 from subprocess import Popen, PIPE
 from .tts_tool import TtsTool
 

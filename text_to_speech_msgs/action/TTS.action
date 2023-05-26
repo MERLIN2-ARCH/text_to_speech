@@ -1,6 +1,6 @@
 # Define the goal
 string text
-text_to_speech_interfaces/Config config
+text_to_speech_msgs/Config config
 ---
 # Define the result
 ---
