@@ -21,6 +21,7 @@ $ sudo apt install mpg321 -y
 # clone
 $ cd ~/ros2_ws/src
 $ git clone https://github.com/MERLIN2-ARCH/text_to_speech.git
+$ git clone https://github.com/uleroboticsgroup/simple_node.git 
 
 # colcon
 $ cd ~/ros2_ws
