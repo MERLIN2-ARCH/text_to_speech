@@ -21,7 +21,7 @@ from .text_to_speech_tools import (
 class TtsNode(Node):
     """ TTS Node Class """
 
-    def __init__(self):
+    def __init__(self) -> None:
 
         super().__init__("tts_node")
 
@@ -35,13 +35,14 @@ class TtsNode(Node):
         }
 
         # action server
-        self.__action_server = self.create_action_server(TTS,
-                                                         "tts",
-                                                         execute_callback=self.__execute_server,
-                                                         cancel_callback=self.__cancel_callback
-                                                         )
+        self.__action_server = self.create_action_server(
+            TTS,
+            "tts",
+            execute_callback=self.__execute_server,
+            cancel_callback=self.__cancel_callback
+        )
 
-    def __cancel_callback(self):
+    def __cancel_callback(self) -> None:
         if self.__process:
             while self.__process == "started":
                 time.sleep(0.05)
@@ -79,13 +80,10 @@ class TtsNode(Node):
         return result
 
 
-def main(args=None):
-    rclpy.init(args=args)
-
+def main():
+    rclpy.init()
     node = TtsNode()
-
     node.join_spin()
-
     rclpy.shutdown()
 
 
