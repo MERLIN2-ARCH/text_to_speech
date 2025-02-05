@@ -1,7 +1,6 @@
-
 from text_to_speech_msgs.action import TTS
 from subprocess import Popen, PIPE
-from .tts_tool import TtsTool
+from text_to_speech.text_to_speech_tools.tts_tool import TtsTool
 
 
 class FestivalTtsTool(TtsTool):
@@ -18,4 +17,5 @@ class FestivalTtsTool(TtsTool):
             "echo " + request.text + " | festival --tts --language " + language,
             shell=True,
             stdout=PIPE,
-            start_new_session=True)
+            start_new_session=True,
+        )

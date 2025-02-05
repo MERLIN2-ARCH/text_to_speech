@@ -1,4 +1,3 @@
-
 from text_to_speech_msgs.action import TTS
 from subprocess import Popen
 from abc import ABC, abstractmethod

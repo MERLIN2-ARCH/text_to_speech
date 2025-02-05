@@ -1,4 +1,3 @@
-
 """ Text to Speech for ROS2 """
 
 import os
@@ -14,12 +13,12 @@ from .text_to_speech_tools import (
     ESpeakTtsTool,
     SpdSayTtsTool,
     FestivalTtsTool,
-    GTtsTtsTool
+    GTtsTtsTool,
 )
 
 
 class TtsNode(Node):
-    """ TTS Node Class """
+    """TTS Node Class"""
 
     def __init__(self) -> None:
 
@@ -31,7 +30,7 @@ class TtsNode(Node):
             Config.ESPEAK: ESpeakTtsTool(),
             Config.SPD_SAY: SpdSayTtsTool(),
             Config.FESTIVAL: FestivalTtsTool(),
-            Config.GTTS: GTtsTtsTool()
+            Config.GTTS: GTtsTtsTool(),
         }
 
         # action server
@@ -39,7 +38,7 @@ class TtsNode(Node):
             TTS,
             "tts",
             execute_callback=self.__execute_server,
-            cancel_callback=self.__cancel_callback
+            cancel_callback=self.__cancel_callback,
         )
 
     def __cancel_callback(self) -> None:
@@ -50,7 +49,7 @@ class TtsNode(Node):
             os.killpg(os.getpgid(self.__process.pid), signal.SIGTERM)
 
     def __execute_server(self, goal_handle) -> TTS.Result:
-        """ execute action server
+        """execute action server
 
         Args:
             goal_handle: goal_handle
