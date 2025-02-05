@@ -1,4 +1,4 @@
-""" Text to Speech for ROS2 """
+"""Text to Speech for ROS2"""
 
 import os
 import time
